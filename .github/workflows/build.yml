@@ -16,13 +16,12 @@ jobs:
     - name: Setup Python
       uses: actions/setup-python@v5
       with:
-        python-version: "3.11"
+        python-version: "3.10"
 
     - name: Cache Buildozer and Gradle
       uses: actions/cache@v4
       with:
         path: |
-          ~
           ~/.buildozer
           ~/.gradle
         key: buildozer-${{ runner.os }}-${{ hashFiles('buildozer.spec') }}
@@ -42,14 +41,13 @@ jobs:
     - name: Install Buildozer and Cython
       run: |
         python -m pip install --upgrade pip
-        python -m pip install buildozer==1.5.0 cython==0.29.36
+        python -m pip install setuptools==68.0.0 buildozer==1.5.0 cython==0.29.36
+
+    - name: Clean Previous Broken Build
+      run: |
+        rm -rf .buildozer
 
     - name: Build Android APK with Buildozer
       run: |
         buildozer -v android debug
-
-    - name: Upload APK Artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: Keep_Secret_VIP_APK
-        path: bin/*.apk
+        
