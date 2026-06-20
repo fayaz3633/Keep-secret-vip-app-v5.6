@@ -19,8 +19,11 @@ source.include_exts = py,png,jpg,kv,atlas,db,json
 version = 1.0.0
 
 # (list) Application requirements
-# فیاض بھائی، کمپائلر فیلئیر (string.h) سے بچنے کے لیے ورژن 3.10 اور 3.20.0 کو لاک کر دیا ہے
+# فیاض بھائی، پائتھن 3.10 اور پائیکرپٹوڈوم کا مستحکم ورژن لاک کر دیا ہے
 requirements = python3==3.10.11,kivy,pycryptodome==3.20.0
+
+# (str) p4a branch to use (Autoconf اور libtool کے ایرر سے بچنے کے لیے develop برانچ)
+p4a.branch = develop
 
 # (str) Supported orientations
 orientation = portrait
