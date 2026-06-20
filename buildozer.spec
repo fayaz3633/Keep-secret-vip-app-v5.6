@@ -19,14 +19,13 @@ source.include_exts = py,png,jpg,kv,atlas,db,json
 version = 1.0.0
 
 # (list) Application requirements
-# خالص اور لائٹ ویٹ pycryptodome، بغیر کسی ورژن کے جھنجھٹ کے
-requirements = python3,kivy,pycryptodome
+# فیاض بھائی، کمپائلر فیلئیر (string.h) سے بچنے کے لیے ورژن 3.10 اور 3.20.0 کو لاک کر دیا ہے
+requirements = python3==3.10.11,kivy,pycryptodome==3.20.0
 
 # (str) Supported orientations
 orientation = portrait
 
 # (bool) Indicate if the application should be fullscreen or not
-# آپ کی تجویز کے مطابق ماڈرن پلے اسٹور UI کے لیے 0 سیٹ کر دیا ہے
 fullscreen = 0
 
 # =============================================================================
