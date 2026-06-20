@@ -38,14 +38,17 @@ jobs:
           libsdl2-ttf-dev libsdl2-mixer-dev \
           zlib1g-dev
 
-    - name: Install Buildozer and Cython
+    - name: Install Buildozer, Cython, and Wheel
+      # فیاض بھائی، آپ کے مشورے کے مطابق wheel اور مخصوص setuptools شامل کر دیے ہیں
       run: |
         python -m pip install --upgrade pip
-        python -m pip install setuptools==68.0.0 buildozer==1.5.0 cython==0.29.36
+        python -m pip install setuptools==68.0.0 buildozer==1.5.0 cython==0.29.36 wheel
 
-    - name: Clean Previous Broken Build
+    - name: Clean Previous Broken Build Cache
+      # پرانے کچرے اور خراب کنفیگریشن کو جڑ سے مٹانے کا لاجک
       run: |
         rm -rf .buildozer
+        rm -rf ~/.buildozer
 
     - name: Build Android APK with Buildozer
       run: |
